@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roflan-Proxy UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</head>
+<body>
+    <div class="page-container">
+        <div class="main-container">
+            <div class="text-container request-container">
+                <textarea class="textarea request"></textarea>
+            </div>
+            <div class="text-container response-container">
+                <textarea readonly class="textarea response"></textarea>
+            </div>
+        </div>
+        <div class="input-container">
+            <input class="input" placeholder="request_id">
+            <button class="button load">load request</button>
+            <button class="button send">send request</button>
+            <button class="button xss">run xss scan</button>
+            <button class="button https-disabled">HTTPS</button>
+            <span class="loader"></span>
+        </div>
+    </div>
+</body>
+</html>

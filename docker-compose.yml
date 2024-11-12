@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  api-service:
+    build:
+      context: .
+    command: python api.py
+    ports:
+      - "8889:8889"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+
+  proxy-service:
+    build:
+      context: .
+    command: python proxy.py
+    ports:
+      - "8888:8888"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
