@@ -44,3 +44,19 @@
 > `/vulnerable?param=...`
 
 на хосте web gui (либо IP устройства, на котором запушщен контейнер в вашей сети, либо `host.docker.internal:8889`).
+
+### Примеры запросов
+
+```
+GET /vulnerable?param=1 HTTP/1.1
+Host: host.docker.internal:8889
+User-Agent: roflan/1337
+Accept: */*
+```
+
+```
+GET / HTTP/1.1
+Host: mail.ru
+User-Agent: roflan/1337
+Accept: */*
+```
